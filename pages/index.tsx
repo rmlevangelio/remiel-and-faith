@@ -20,6 +20,31 @@ export default function Home() {
   const [selectedPhoto, setSelectedPhoto] = useState<{ src: string; alt: string } | null>(null);
   const [showBankDetails, setShowBankDetails] = useState(false);
 
+  const photos = [
+    { src: '/images/archery.jpg', alt: 'Archery', span: true },
+    { src: '/images/coffee.jpg', alt: 'Coffee', span: false },
+    { src: '/images/logo.jpg', alt: 'Remiel & Faith', span: false },
+    { src: '/images/norway-1.jpg', alt: 'Norway', span: true },
+  ];
+  const [photoIndex, setPhotoIndex] = useState<number | null>(null);
+
+  const openPhoto = (index: number) => setPhotoIndex(index);
+  const closePhoto = () => setPhotoIndex(null);
+  const prevPhoto = () =>
+    setPhotoIndex((i) => (i !== null ? (i - 1 + photos.length) % photos.length : 0));
+  const nextPhoto = () => setPhotoIndex((i) => (i !== null ? (i + 1) % photos.length : 0));
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (photoIndex === null) return;
+      if (e.key === 'ArrowRight') nextPhoto();
+      if (e.key === 'ArrowLeft') prevPhoto();
+      if (e.key === 'Escape') closePhoto();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [photoIndex]);
+
   useEffect(() => {
     const update = () => {
       const target = new Date('2027-03-15T16:30:00');
@@ -72,6 +97,7 @@ export default function Home() {
         <nav className="topbar-nav">
           <a href="#story">Story</a>
           <a href="#details">Details</a>
+          <a href="#getting-there">Getting There</a>
           <a href="#gallery">Gallery</a>
           <a href="#rsvp">Gift</a>
         </nav>
@@ -79,17 +105,17 @@ export default function Home() {
       </div>
 
       {/* Banner */}
-      <div className="banner fade-in d1">
+      {/* <div className="banner fade-in d1">
         <div className="banner-icon">💌</div>
         <div className="banner-text">
           <strong>You&apos;re Invited — Remiel &amp; Faith, March 15, 2027</strong>
           <span>Please RSVP by November 15th · Soirée Events Place, Cavite, Philippines</span>
         </div>
-        <span className="banner-arrow">›</span>
-      </div>
+        <span className="banner-arrow ">›</span>
+      </div> */}
 
       {/* Main Bento Grid */}
-      <div className="main">
+      <div className="main !mt-8">
         {/* Profile Card */}
         <div className="card profile-card fade-in d2">
           <div className="card-header">
@@ -125,11 +151,11 @@ export default function Home() {
                 <div className="profile-stat-label">Days Left</div>
               </div>
               <div className="profile-stat">
-                <span className="profile-stat-num">160</span>
+                <span className="profile-stat-num">200</span>
                 <div className="profile-stat-label">Guests</div>
               </div>
               <div className="profile-stat">
-                <span className="profile-stat-num">6</span>
+                <span className="profile-stat-num">2</span>
                 <div className="profile-stat-label">Years Together</div>
               </div>
             </div>
@@ -201,11 +227,11 @@ export default function Home() {
                   <div className="story-line"></div>
                 </div>
                 <div style={{ flex: 1 }}>
-                  <div className="story-year">2020–2022 · Two Cities</div>
+                  <div className="story-year">2025–2026 · Singapore &amp; Germany</div>
                   <div className="story-title">Long distance, short in doubt</div>
                   <div className="story-desc">
-                    Video calls at midnight, weekend flights, handwritten letters. Love, it turns
-                    out, has no regard for geography.
+                    Two continents, one love. Video calls across time zones and singing together
+                    online — Asia and Europe bridged by a screen and a song.
                   </div>
                 </div>
                 <span className="story-emoji">✈️</span>
@@ -216,11 +242,12 @@ export default function Home() {
                   <div className="story-line"></div>
                 </div>
                 <div style={{ flex: 1 }}>
-                  <div className="story-year">December 2026 · Amalfi Coast</div>
+                  <div className="story-year">February 20, 2026 · Tromsø, Norway</div>
                   <div className="story-title">The question</div>
                   <div className="story-desc">
-                    Clifftop at sunset, the Mediterranean turning gold. Faith asked. Remiel said yes
-                    before he finished.
+                    Sitting together in a reindeer sledge in the Arctic wilds of Tromsø, Remiel
+                    popped the question. Faith looked at him and said, &ldquo;Are you
+                    serious?&rdquo; Then, finally — yes. <em>Palagi</em> was playing.
                   </div>
                 </div>
                 <span className="story-emoji">💍</span>
@@ -238,6 +265,56 @@ export default function Home() {
                   </div>
                 </div>
                 <span className="story-emoji">🕊️</span>
+              </div>
+            </div>
+            {/* Their Songs */}
+            <div className="story-song">
+              <div className="story-song-label">🎵 Their songs</div>
+              <div className="story-songs-list">
+                <div className="story-songs-item">
+                  <div className="story-song-title">
+                    Palagi &mdash; TJ Monterde &amp; KZ Tandingan
+                  </div>
+                  <div className="story-song-embed">
+                    <iframe
+                      width="100%"
+                      height="152"
+                      src="https://www.youtube.com/embed/fu9yk7gCTbc?rel=0&modestbranding=1"
+                      title="Palagi by TJ Monterde &amp; KZ Tandingan"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+                <div className="story-songs-item">
+                  <div className="story-song-title">Goodness of God &mdash; Bethel Music</div>
+                  <div className="story-song-embed">
+                    <iframe
+                      width="100%"
+                      height="152"
+                      src="https://www.youtube.com/embed/n0FBb6hnwTo?rel=0&modestbranding=1"
+                      title="Goodness of God by Bethel Music"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+                <div className="story-songs-item">
+                  <div className="story-song-title">Ikaw at Ako &mdash; Johnoy Danao</div>
+                  <div className="story-song-embed">
+                    <iframe
+                      width="100%"
+                      height="152"
+                      src="https://www.youtube.com/embed/l5ta60yfryc?rel=0&modestbranding=1"
+                      title="Ikaw at Ako by Johnoy Danao"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -341,6 +418,159 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Getting There */}
+        <div className="card getting-there-card fade-in d5" id="getting-there">
+          <div className="card-header">
+            <div className="card-icon" style={{ background: 'rgba(107,203,119,0.12)' }}>
+              ✈️
+            </div>
+            <div>
+              <div className="card-title">How to Get There</div>
+              <div className="card-sub">For guests travelling from abroad</div>
+            </div>
+          </div>
+          <div className="getting-there-body">
+            <div className="getting-there-col">
+              <div className="gt-item">
+                <div className="gt-icon">🛬</div>
+                <div>
+                  <div className="gt-label">Nearest Airport</div>
+                  <div className="gt-title">Ninoy Aquino International Airport</div>
+                  <div className="gt-sub">Terminal 3 · Manila, Philippines</div>
+                  <div className="gt-desc">
+                    NAIA T3 is the main international terminal. Most major airlines arrive here.
+                    From the airport, the venue in Cavite is approximately 1–1.5 hours by car
+                    depending on traffic.
+                  </div>
+                </div>
+              </div>
+              <div className="gt-item">
+                <div className="gt-icon">🚌</div>
+                <div>
+                  <div className="gt-label">Shuttle Service</div>
+                  <div className="gt-title">Complimentary Shuttle Bus</div>
+                  <div className="gt-sub">Provided by the couple</div>
+                  <div className="gt-desc">
+                    We are arranging shuttle buses from key pick-up points. More details to follow.
+                  </div>
+                  <div className="gt-stops">
+                    <div className="gt-stop">
+                      <span className="gt-stop-dot" style={{ background: '#4a9eff' }}></span>
+                      <span>
+                        <strong>Makati</strong> · TBD pick-up point
+                      </span>
+                    </div>
+                    <div className="gt-stop">
+                      <span className="gt-stop-dot" style={{ background: '#a78bfa' }}></span>
+                      <span>
+                        <strong>BGC</strong> · TBD pick-up point
+                      </span>
+                    </div>
+                    <div className="gt-stop">
+                      <span className="gt-stop-dot" style={{ background: '#f0c060' }}></span>
+                      <span>
+                        <strong>Pasig</strong> · TBD pick-up point
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="getting-there-col">
+              <div className="gt-item">
+                <div className="gt-icon">🚗</div>
+                <div>
+                  <div className="gt-label">By Car / Rideshare</div>
+                  <div className="gt-title">Soirée Events Place</div>
+                  <div className="gt-sub">Cavite, Philippines</div>
+                  <div className="gt-desc">
+                    Grab and ride-hailing apps are widely available in Metro Manila. Parking is
+                    available at the venue. We recommend leaving early to account for SLEX traffic.
+                  </div>
+                  <a
+                    href="https://www.grab.com/ph/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grab-badge"
+                  >
+                    <svg
+                      width="36"
+                      height="14"
+                      viewBox="0 0 72 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M6.5 6C3.46 6 1 8.46 1 11.5v5C1 19.54 3.46 22 6.5 22h5.25v-5.5H8.5V14h6.25v8H6.5C2.36 22 0 18.64 0 16.5v-5C0 7.36 2.36 4 6.5 4H14v2H6.5z"
+                        fill="white"
+                      />
+                      <text
+                        x="18"
+                        y="20"
+                        fontFamily="Arial,sans-serif"
+                        fontWeight="800"
+                        fontSize="18"
+                        fill="white"
+                      >
+                        grab
+                      </text>
+                    </svg>
+                    <span>Download ↗</span>
+                  </a>
+                </div>
+              </div>
+              <div className="gt-item">
+                <div className="gt-icon">💡</div>
+                <div>
+                  <div className="gt-label">Tips</div>
+                  <div className="gt-title">Travel Advice</div>
+                  <div className="gt-desc">
+                    <ul className="gt-tips">
+                      <li>
+                        Philippine peso (PHP) is the local currency — ATMs available at NAIA T3.
+                      </li>
+                      <li>
+                        Grab app is the most reliable rideshare option in Manila.{' '}
+                        <a
+                          href="https://www.grab.com/ph/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="gt-inline-link"
+                        >
+                          Get Grab ↗
+                        </a>
+                      </li>
+                      <li>
+                        Allow extra time — Metro Manila traffic can be heavy especially on weekends.
+                      </li>
+                      <li>Contact us if you need help arranging transport from the airport.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="gt-map-wrap">
+            <iframe
+              title="Soirée Events Place"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3868.7231252259494!2d120.89277857558334!3d14.152368586282618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd83b522cf6c55%3A0xef5ffe850027931!2sSoir%C3%A9e%20Events%20Place!5e0!3m2!1sen!2ssg!4v1778430508550!5m2!1sen!2ssg"
+              className="gt-map"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <a
+              href="https://maps.app.goo.gl/9JAif7dmdUsznWB29"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gt-map-link"
+            >
+              Open in Google Maps ↗
+            </a>
+          </div>
+        </div>
+
         {/* Gallery */}
         <div className="card gallery-card fade-in d6" id="gallery">
           <div className="card-header">
@@ -367,16 +597,11 @@ export default function Home() {
             </span>
           </div>
           <div className="gallery-grid">
-            {[
-              { src: '/images/archery.jpg', alt: 'Archery', span: true },
-              { src: '/images/coffee.jpg', alt: 'Coffee', span: false },
-              { src: '/images/logo.jpg', alt: 'Remiel & Faith', span: false },
-              { src: '/images/norway-1.jpg', alt: 'Norway', span: true },
-            ].map((photo) => (
+            {photos.map((photo, index) => (
               <div
                 key={photo.src}
                 className={`gallery-cell${photo.span ? ' span2' : ''}`}
-                onClick={() => setSelectedPhoto({ src: photo.src, alt: photo.alt })}
+                onClick={() => openPhoto(index)}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={photo.src} alt={photo.alt} className="gallery-img" />
@@ -587,17 +812,42 @@ export default function Home() {
       </footer>
 
       {/* Photo Modal */}
-      {selectedPhoto && (
-        <div className="photo-modal-overlay" onClick={() => setSelectedPhoto(null)}>
-          <div className="photo-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="photo-modal-close" onClick={() => setSelectedPhoto(null)}>
-              ✕
-            </button>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={selectedPhoto.src} alt={selectedPhoto.alt} className="photo-modal-img" />
-          </div>
-        </div>
-      )}
+      {photoIndex !== null &&
+        (() => {
+          const photo = photos[photoIndex];
+          return (
+            <div className="photo-modal-overlay" onClick={closePhoto}>
+              <div className="photo-modal" onClick={(e) => e.stopPropagation()}>
+                <button className="photo-modal-close" onClick={closePhoto}>
+                  ✕
+                </button>
+                <button
+                  className="photo-modal-arrow photo-modal-prev"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevPhoto();
+                  }}
+                >
+                  ‹
+                </button>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={photo.src} alt={photo.alt} className="photo-modal-img" />
+                <button
+                  className="photo-modal-arrow photo-modal-next"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextPhoto();
+                  }}
+                >
+                  ›
+                </button>
+                <div className="photo-modal-counter">
+                  {photoIndex + 1} / {photos.length}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
     </>
   );
 }
