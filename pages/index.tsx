@@ -25,6 +25,18 @@ export default function Home() {
     { src: '/images/coffee.jpg', alt: 'Coffee', span: false },
     { src: '/images/logo.jpg', alt: 'Remiel & Faith', span: false },
     { src: '/images/norway-1.jpg', alt: 'Norway', span: true },
+    { src: '/images/IMG_0213.jpg', alt: 'Photo', span: false },
+    { src: '/images/IMG_1317.jpg', alt: 'Photo', span: false },
+    { src: '/images/IMG_4309.JPG', alt: 'Photo', span: true },
+    { src: '/images/IMG_4574.JPG', alt: 'Photo', span: false },
+    { src: '/images/IMG_4677.JPG', alt: 'Photo', span: false },
+    { src: '/images/IMG_4930.JPG', alt: 'Photo', span: true },
+    { src: '/images/IMG_6392.JPG', alt: 'Photo', span: false },
+    { src: '/images/IMG_6553.JPG', alt: 'Photo', span: false },
+    { src: '/images/IMG_7852.JPG', alt: 'Photo', span: true },
+    { src: '/images/IMG_9361.JPG', alt: 'Photo', span: false },
+    { src: '/images/IMG_9793.JPG', alt: 'Photo', span: false },
+    { src: '/images/IMG_9848.JPG', alt: 'Photo', span: true },
   ];
   const [photoIndex, setPhotoIndex] = useState<number | null>(null);
 
@@ -116,85 +128,177 @@ export default function Home() {
 
       {/* Main Bento Grid */}
       <div className="main !mt-8">
-        {/* Profile Card */}
-        <div className="card profile-card fade-in d2">
-          <div className="card-header">
-            <div
-              className="card-icon"
-              style={{ background: 'rgba(74,158,255,0.15)', fontSize: '14px' }}
-            >
-              💑
+        {/* Sidebar / Left Column */}
+        <div className="col-left fade-in d2">
+          {/* Profile Card */}
+          <div className="card profile-card">
+            <div className="card-header">
+              <div
+                className="card-icon"
+                style={{ background: 'rgba(74,158,255,0.15)', fontSize: '14px' }}
+              >
+                💑
+              </div>
+              <div>
+                <div className="card-title">The Couple</div>
+                <div className="card-sub">
+                  <span className="dot"></span> March 15, 2027
+                </div>
+              </div>
             </div>
-            <div>
-              <div className="card-title">The Couple</div>
-              <div className="card-sub">
-                <span className="dot"></span> March 15, 2027
+            <div className="profile-body">
+              <div className="profile-avatar-wrap">
+                <span className="profile-avatar-initials">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/logo.jpg" alt="Remiel &amp; Faith" />
+                </span>
+              </div>
+              <div className="profile-names">
+                Remiel<span className="amp"> &amp; </span>Faith
+              </div>
+              <div className="profile-date">To be married in Cavite, Philippines</div>
+              <div className="profile-badge">Celebrating Together</div>
+              <div className="profile-divider"></div>
+              <div className="profile-stat-row">
+                <div className="profile-stat">
+                  <span className="profile-stat-num">{countdown.days2}</span>
+                  <div className="profile-stat-label">Days Left</div>
+                </div>
+                <div className="profile-stat">
+                  <span className="profile-stat-num">200</span>
+                  <div className="profile-stat-label">Guests</div>
+                </div>
+                <div className="profile-stat">
+                  <span className="profile-stat-num">2</span>
+                  <div className="profile-stat-label">Years Together</div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="profile-body">
-            <div className="profile-avatar-wrap">
-              <span className="profile-avatar-initials">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/logo.jpg" alt="Remiel &amp; Faith" />
-              </span>
-            </div>
-            <div className="profile-names">
-              Remiel<span className="amp"> &amp; </span>Faith
-            </div>
-            <div className="profile-date">To be married in Cavite, Philippines</div>
-            <div className="profile-badge">Celebrating Together</div>
-            <div className="profile-divider"></div>
-            <div className="profile-stat-row">
-              <div className="profile-stat">
-                <span className="profile-stat-num">{countdown.days2}</span>
-                <div className="profile-stat-label">Days Left</div>
-              </div>
-              <div className="profile-stat">
-                <span className="profile-stat-num">200</span>
-                <div className="profile-stat-label">Guests</div>
-              </div>
-              <div className="profile-stat">
-                <span className="profile-stat-num">2</span>
-                <div className="profile-stat-label">Years Together</div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Countdown */}
-        <div className="card countdown-card fade-in d3">
-          <div className="card-header">
-            <div className="card-icon" style={{ background: 'rgba(240,192,96,0.15)' }}>
-              ⏳
+          {/* Fun Facts */}
+          <div className="card">
+            <div className="card-header">
+              <div className="card-icon" style={{ background: 'rgba(240,192,96,0.15)' }}>
+                ✨
+              </div>
+              <div>
+                <div className="card-title">Fun Facts</div>
+                <div className="card-sub">About us</div>
+              </div>
             </div>
-            <div>
-              <div className="card-title">Countdown</div>
-              <div className="card-sub">Until we say &quot;I do&quot;</div>
+            <div className="fun-facts-list">
+              <div className="fun-fact-item">
+                <span className="fun-fact-icon">📍</span>
+                <span>~10,200 km apart — Düsseldorf to Singapore</span>
+              </div>
+              <div className="fun-fact-item">
+                <span className="fun-fact-icon">🕐</span>
+                <span>7-hour timezone gap (SGT → CET)</span>
+              </div>
+              <div className="fun-fact-item">
+                <span className="fun-fact-icon">🌍</span>
+                <span>4 countries in their story</span>
+              </div>
+              <div className="fun-fact-item">
+                <span className="fun-fact-icon">🎵</span>
+                <span>Started with a song, ends with a vow</span>
+              </div>
+              <div className="fun-fact-item">
+                <span className="fun-fact-icon">🦌</span>
+                <span>Proposal in a reindeer sledge in the Arctic</span>
+              </div>
             </div>
           </div>
-          <div className="countdown-body">
-            <div className="cd-unit">
-              <span className="cd-num">{countdown.d}</span>
-              <span className="cd-label">Days</span>
+
+          {/* Hashtag */}
+          <div className="card">
+            <div className="card-header">
+              <div className="card-icon" style={{ background: 'rgba(255,143,163,0.12)' }}>
+                📸
+              </div>
+              <div>
+                <div className="card-title">Share the Moment</div>
+                <div className="card-sub">Tag us on Instagram</div>
+              </div>
             </div>
-            <div className="cd-unit">
-              <span className="cd-num">{countdown.h}</span>
-              <span className="cd-label">Hours</span>
+            <div className="hashtag-body">
+              <div className="hashtag-tag">#RemielAndFaith2027</div>
+              <div className="hashtag-desc">
+                Snap, post, and tag your photos so we can relive every moment together.
+              </div>
+              <a
+                href="https://www.instagram.com/explore/tags/RemielAndFaith2027/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hashtag-link"
+              >
+                View on Instagram ↗
+              </a>
             </div>
-            <div className="cd-unit">
-              <span className="cd-num">{countdown.m}</span>
-              <span className="cd-label">Mins</span>
+          </div>
+
+          {/* Wishes */}
+          <div className="card">
+            <div className="card-header">
+              <div className="card-icon" style={{ background: 'rgba(167,139,250,0.12)' }}>
+                💌
+              </div>
+              <div>
+                <div className="card-title">Leave a Wish</div>
+                <div className="card-sub">We&apos;d love to hear from you</div>
+              </div>
             </div>
-            <div className="cd-unit">
-              <span className="cd-num">{countdown.s}</span>
-              <span className="cd-label">Secs</span>
+            <div className="wishes-body">
+              <div className="wishes-desc">
+                Send us your love, prayers, and well wishes. We&apos;ll cherish every word.
+              </div>
+              <a
+                href="https://forms.gle/yourformlink"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="wishes-btn"
+              >
+                ✍️ Write a message ↗
+              </a>
             </div>
           </div>
         </div>
+        {/* end col-left */}
 
         {/* Story */}
         <div className="col-right fade-in d4" id="story">
+          {/* Countdown */}
+          <div className="card countdown-card">
+            <div className="card-header">
+              <div className="card-icon" style={{ background: 'rgba(240,192,96,0.15)' }}>
+                ⏳
+              </div>
+              <div>
+                <div className="card-title">Countdown</div>
+                <div className="card-sub">Until we say &quot;I do&quot;</div>
+              </div>
+            </div>
+            <div className="countdown-body">
+              <div className="cd-unit">
+                <span className="cd-num">{countdown.d}</span>
+                <span className="cd-label">Days</span>
+              </div>
+              <div className="cd-unit">
+                <span className="cd-num">{countdown.h}</span>
+                <span className="cd-label">Hours</span>
+              </div>
+              <div className="cd-unit">
+                <span className="cd-num">{countdown.m}</span>
+                <span className="cd-label">Mins</span>
+              </div>
+              <div className="cd-unit">
+                <span className="cd-num">{countdown.s}</span>
+                <span className="cd-label">Secs</span>
+              </div>
+            </div>
+          </div>
+
           <div className="card story-card">
             <div className="card-header">
               <div className="card-icon" style={{ background: 'rgba(255,143,163,0.15)' }}>
@@ -212,14 +316,49 @@ export default function Home() {
                   <div className="story-line"></div>
                 </div>
                 <div style={{ flex: 1 }}>
-                  <div className="story-year">Spring 2019 · Florence, Italy</div>
-                  <div className="story-title">The night it all began</div>
+                  <div className="story-year">November 2024 · Paris, France</div>
+                  <div className="story-title">A story in passing</div>
                   <div className="story-desc">
-                    A gallery opening, April light, and a conversation that lasted until midnight.
-                    They walked Ponte Vecchio twice and made plans to meet again at dawn.
+                    Remiel spotted Faith&rsquo;s Instagram story — she was in Paris. He slid in, a a
+                    conversation started, then a call — just two friends catching up. They agreed to
+                    meet in December. It almost never happened.
+                  </div>
+                </div>
+                <span className="story-emoji">🗼</span>
+              </div>
+              <div className="story-item">
+                <div className="story-dot-col">
+                  <div className="story-dot"></div>
+                  <div className="story-line"></div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div className="story-year">January 6, 2025 · Estancia, Pasig, Philippines</div>
+                  <div className="story-title">The day it all began</div>
+                  <div className="story-desc">
+                    Lunch at Peri Peri Chicken, reminiscing childhood. Remiel brought up long
+                    distance — Faith said, &ldquo;I do believe, it&rsquo;s only a matter of
+                    trust.&rdquo; Remiel asked: &ldquo;Do you trust me?&rdquo; Faith said no. Of
+                    course. 😄
                   </div>
                 </div>
                 <span className="story-emoji">🌸</span>
+              </div>
+              <div className="story-item">
+                <div className="story-dot-col">
+                  <div className="story-dot" style={{ background: '#34d399' }}></div>
+                  <div className="story-line"></div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div className="story-year">
+                    February 20, 2025 · First &ldquo;I love you&rdquo;
+                  </div>
+                  <div className="story-title">The words that changed everything</div>
+                  <div className="story-desc">
+                    Weeks of texts and calls, closing the distance one message at a time. Then on
+                    February 20 — the first &ldquo;I love you.&rdquo;
+                  </div>
+                </div>
+                <span className="story-emoji">💬</span>
               </div>
               <div className="story-item">
                 <div className="story-dot-col">
@@ -231,7 +370,7 @@ export default function Home() {
                   <div className="story-title">Long distance, short in doubt</div>
                   <div className="story-desc">
                     Two continents, one love. Video calls across time zones and singing together
-                    online — Asia and Europe bridged by a screen and a song.
+                    online — Asia and Europe bridged by a screen and many songs.
                   </div>
                 </div>
                 <span className="story-emoji">✈️</span>
@@ -368,7 +507,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="card detail-card">
+          <div className="card detail-card detail-card--wide">
             <div className="card-header">
               <div className="card-icon" style={{ background: 'rgba(255,143,163,0.12)' }}>
                 👗
@@ -384,34 +523,51 @@ export default function Home() {
                 <div className="detail-line">
                   <strong>Formal evening wear</strong>
                 </div>
-                <div className="detail-line">
-                  Palette: deep navy, plum wine, muted mauve, champagne, sage green
-                </div>
                 <div className="detail-line" style={{ marginTop: '6px' }}>
                   Please no white — let the bride shine ✨
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="card detail-card">
-            <div className="card-header">
-              <div className="card-icon" style={{ background: 'rgba(167,139,250,0.12)' }}>
-                🏨
-              </div>
-              <div>
-                <div className="card-title">Stay</div>
-                <div className="card-sub">Room block available</div>
-              </div>
-            </div>
-            <div className="card-body" style={{ padding: '14px 18px 18px' }}>
-              <div className="detail-divider" style={{ background: 'rgba(167,139,250,0.4)' }}></div>
-              <div className="detail-lines">
-                <div className="detail-line">
-                  <strong>Canopy Farm PH</strong>
+              {/* Colour Palette */}
+              <div className="dc-palette-label">Colour Palette</div>
+              <div className="dc-palette">
+                <div className="dc-swatch">
+                  <div className="dc-swatch-dot" style={{ background: '#1a2744' }}></div>
+                  <span>Deep Navy</span>
                 </div>
-                <div className="detail-line">TBD</div>
-                <div className="detail-line" style={{ marginTop: '6px' }}>
-                  Quote &quot;Remiel &amp; Faith&quot; · Deadline Aug 1st.
+                <div className="dc-swatch">
+                  <div className="dc-swatch-dot" style={{ background: '#6b2d5e' }}></div>
+                  <span>Plum Wine</span>
+                </div>
+                <div className="dc-swatch">
+                  <div className="dc-swatch-dot" style={{ background: '#b08a9e' }}></div>
+                  <span>Muted Mauve</span>
+                </div>
+                <div className="dc-swatch">
+                  <div className="dc-swatch-dot" style={{ background: '#e8d9b5' }}></div>
+                  <span>Champagne</span>
+                </div>
+                <div className="dc-swatch">
+                  <div className="dc-swatch-dot" style={{ background: '#7a9e7e' }}></div>
+                  <span>Sage Green</span>
+                </div>
+              </div>
+              {/* Attire Examples */}
+              <div className="dc-attire">
+                <div className="dc-attire-col">
+                  <div className="dc-attire-label">👔 Gentlemen</div>
+                  <ul className="dc-attire-list">
+                    <li>Semi-formal wear</li>
+                    <li>Suit &amp; tie or blazer</li>
+                    <li>Dress shoes</li>
+                  </ul>
+                </div>
+                <div className="dc-attire-col">
+                  <div className="dc-attire-label">👗 Ladies</div>
+                  <ul className="dc-attire-list">
+                    <li>Floor-length or midi gown</li>
+                    <li>Formal cocktail dress</li>
+                    <li>Avoid white, ivory &amp; bridal tones</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -589,12 +745,6 @@ export default function Home() {
                 Photos
               </div>
             </div>
-            <span
-              className="card-action"
-              style={{ fontSize: '12px', letterSpacing: '0.05em', color: 'var(--accent2)' }}
-            >
-              Add Photos
-            </span>
           </div>
           <div className="gallery-grid">
             {photos.map((photo, index) => (
@@ -779,13 +929,6 @@ export default function Home() {
                 <div>
                   <div className="reminder-text">RSVP Deadline</div>
                   <div className="reminder-date">November 15, 2026</div>
-                </div>
-              </div>
-              <div className="reminder-item">
-                <div className="reminder-dot" style={{ background: 'var(--gold)' }}></div>
-                <div>
-                  <div className="reminder-text">Hotel Block Closes</div>
-                  <div className="reminder-date">February 15, 2027</div>
                 </div>
               </div>
               <div className="reminder-item">
