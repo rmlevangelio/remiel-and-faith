@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const photos = [
+  { src: '/images/IMG_8408.jpeg', alt: 'Photo', span: true },
   { src: '/images/archery.jpg', alt: 'Archery', span: true },
   { src: '/images/coffee.jpg', alt: 'Coffee', span: false },
   { src: '/images/logo.jpg', alt: 'Remiel & Faith', span: false },
@@ -9,6 +10,7 @@ const photos = [
   { src: '/images/IMG_0213.jpg', alt: 'Photo', span: false },
   { src: '/images/IMG_1317.jpg', alt: 'Photo', span: false },
   { src: '/images/IMG_4309.JPG', alt: 'Photo', span: true },
+  { src: '/images/IMG_8429.jpeg', alt: 'Photo', span: true },
   { src: '/images/IMG_4574.JPG', alt: 'Photo', span: false },
   { src: '/images/IMG_4677.JPG', alt: 'Photo', span: false },
   { src: '/images/IMG_4930.JPG', alt: 'Photo', span: true },

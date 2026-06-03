@@ -323,16 +323,18 @@ export default function WeddingPartyCard() {
 
           {/* Couple Photo */}
           <div className="wp-prog-photo">
-            <img src="/images/coffee.jpg" alt="Remiel &amp; Faith" />
-            <div className="wp-prog-photo-caption">Bacha Coffee, Singapore · 2024</div>
+            <img src="/images/IMG_8316.jpeg" alt="Remiel &amp; Faith" />
+            <div className="wp-prog-photo-caption">
+              Pineda Elementary School, Pasig, Philippines · 2026
+            </div>
           </div>
 
           {/* Pull Quote */}
           <div className="wp-quote">
             <div className="wp-quote-mark">&ldquo;</div>
             <p className="wp-quote-text">
-              We are so grateful for each person walking alongside us — those who prayed for us,
-              believed in us, and helped make this day possible.
+              We're grateful for everyone who got us here. You prayed for us, believed in us, and
+              showed up. That means everything.
             </p>
             <div className="wp-quote-attr">— Remiel &amp; Faith</div>
           </div>
