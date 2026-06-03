@@ -20,8 +20,8 @@ export default function StoryCard() {
             <div className="story-year">November 2024 · Paris, France</div>
             <div className="story-title">A story in passing</div>
             <div className="story-desc">
-              Remiel spotted Faith&rsquo;s Instagram story — she was in Paris. He slid in, a a
-              conversation started, then a call — just two friends catching up. They agreed to meet
+              Remiel spotted Faith&rsquo;s Instagram story. She was in Paris. He slid in, a
+              conversation started, then a call. Just two friends catching up. They agreed to meet
               in December. It almost never happened.
             </div>
           </div>
@@ -36,7 +36,7 @@ export default function StoryCard() {
             <div className="story-year">January 6, 2025 · Estancia, Pasig, Philippines</div>
             <div className="story-title">The day it all began</div>
             <div className="story-desc">
-              Lunch at Peri Peri Chicken, reminiscing childhood. Remiel brought up long distance —
+              Lunch at Peri Peri Chicken, reminiscing childhood. Remiel brought up long distance.
               Faith said, &ldquo;I do believe, it&rsquo;s only a matter of trust.&rdquo; Remiel
               asked: &ldquo;Do you trust me?&rdquo; Faith said no. Of course. 😄
             </div>
@@ -50,10 +50,10 @@ export default function StoryCard() {
           </div>
           <div style={{ flex: 1 }}>
             <div className="story-year">February 20, 2025 · First &ldquo;I love you&rdquo;</div>
-            <div className="story-title">The words that changed everything</div>
+            <div className="story-title">February 20</div>
             <div className="story-desc">
-              Weeks of texts and calls, closing the distance one message at a time. Then on February
-              20 — the first &ldquo;I love you.&rdquo;
+              Weeks of texts and calls from opposite ends of the world. Then on February 20, the
+              first &ldquo;I love you.&rdquo;
             </div>
           </div>
           <span className="story-emoji">💬</span>
@@ -67,8 +67,8 @@ export default function StoryCard() {
             <div className="story-year">2025–2026 · Singapore &amp; Germany</div>
             <div className="story-title">Long distance, short in doubt</div>
             <div className="story-desc">
-              Two continents, one love. Video calls across time zones and singing together online —
-              Asia and Europe bridged by a screen and many songs.
+              Video calls across time zones and singing together online. Asia and Europe, a screen
+              between them and not much else.
             </div>
           </div>
           <span className="story-emoji">✈️</span>
@@ -83,7 +83,7 @@ export default function StoryCard() {
             <div className="story-title">The question</div>
             <div className="story-desc">
               Sitting together in a reindeer sledge in the Arctic wilds of Tromsø, Remiel popped the
-              question. Faith looked at him and said, &ldquo;Are you serious?&rdquo; Then, finally —
+              question. Faith looked at him and said, &ldquo;Are you serious?&rdquo; Then, finally,
               yes. <em>Palagi</em> was playing.
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function StoryCard() {
             <div className="story-year">March 15, 2027 · Cavite, Philippines</div>
             <div className="story-title">Forever begins</div>
             <div className="story-desc">
-              Soirée Events Place. Surrounded by everyone we love. The next chapter starts here.
+              Soir&eacute;e Events Place. Surrounded by everyone we love. See you there.
             </div>
           </div>
           <span className="story-emoji">🕊️</span>
