@@ -417,6 +417,88 @@ body {
   text-transform: uppercase;
 }
 
+/* ── PROFILE MUSIC BUTTON ── */
+.profile-music-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: calc(100% - 36px);
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border2);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text2);
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.profile-music-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(167, 139, 250, 0.3);
+}
+
+.profile-music-btn--playing {
+  border-color: rgba(167, 139, 250, 0.4);
+  background: rgba(167, 139, 250, 0.08);
+  color: var(--text);
+}
+
+.profile-music-icon {
+  font-size: 12px;
+}
+
+.profile-music-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* animated bars when playing */
+.profile-music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.profile-music-bars span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: rgba(167, 139, 250, 0.7);
+  animation: music-bar 0.8s ease-in-out infinite alternate;
+}
+
+.profile-music-bars span:nth-child(1) {
+  height: 6px;
+  animation-delay: 0s;
+}
+.profile-music-bars span:nth-child(2) {
+  height: 12px;
+  animation-delay: 0.2s;
+}
+.profile-music-bars span:nth-child(3) {
+  height: 8px;
+  animation-delay: 0.1s;
+}
+.profile-music-bars span:nth-child(4) {
+  height: 10px;
+  animation-delay: 0.3s;
+}
+
+@keyframes music-bar {
+  from {
+    transform: scaleY(0.4);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
 /* ── COUNTDOWN CARD ── */
 .countdown-card {
   grid-column: 2;
@@ -984,6 +1066,433 @@ body {
   font-style: italic;
 }
 
+/* ── WEDDING PARTY ── */
+.wedding-party-card {
+  grid-column: 1 / -1;
+}
+
+.wedding-party-card .wp-inner {
+  padding: 18px 18px 28px;
+}
+
+.wp-section {
+  margin-top: 20px;
+}
+
+.wp-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text2);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.wp-section-icon {
+  font-size: 15px;
+}
+
+.wp-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.wp-grid--sponsors {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+.wp-grid--party {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.wp-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 14px 8px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border2);
+  transition: background 0.2s;
+}
+
+.wp-person:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.wp-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(74, 158, 255, 0.15);
+  border: 1.5px solid rgba(74, 158, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.wp-avatar--groom {
+  background: rgba(74, 158, 255, 0.12);
+  border-color: rgba(74, 158, 255, 0.25);
+  color: var(--accent);
+}
+
+.wp-avatar--bride {
+  background: rgba(255, 143, 163, 0.12);
+  border-color: rgba(255, 143, 163, 0.3);
+  color: var(--rose);
+}
+
+.wp-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.wp-role {
+  font-size: 11px;
+  color: var(--text3);
+  font-weight: 400;
+}
+
+.wp-divider {
+  height: 1px;
+  background: var(--border2);
+  margin: 22px 0 0;
+}
+
+.wp-name-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.wp-name-list--sponsors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.wp-name-list--sponsors .wp-name-item {
+  width: 210px;
+}
+
+.wp-name-item {
+  display: block;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.wp-name-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.wp-name-text {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.wp-name-role {
+  display: block;
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+
+.wp-name-role--groom {
+  color: rgba(74, 158, 255, 0.7);
+}
+
+.wp-name-role--bride {
+  color: rgba(255, 143, 163, 0.8);
+}
+
+.wp-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 4px;
+}
+
+.wp-secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.wp-sponsor-group {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border2);
+}
+
+.wp-sponsor-group-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border2);
+  text-align: center;
+}
+
+.wp-sponsor-group .wp-name-item {
+  padding: 5px 4px;
+}
+
+.wp-sponsor-group .wp-name-text {
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .wp-two-col {
+    grid-template-columns: 1fr;
+  }
+  .wp-secondary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── ENTOURAGE: QUOTE ── */
+.wp-quote {
+  text-align: center;
+  padding: 24px 28px 20px;
+  /* border-bottom: 1px solid var(--border2); */
+}
+
+/* ── ENTOURAGE: BODY GRID ── */
+.wp-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.wp-quote-mark {
+  font-size: 48px;
+  line-height: 1;
+  color: rgba(167, 139, 250, 0.3);
+  font-family: Georgia, serif;
+  margin-bottom: -8px;
+}
+
+.wp-quote-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 10px;
+  font-style: italic;
+}
+
+.wp-quote-attr {
+  font-size: 12px;
+  color: var(--text3);
+  letter-spacing: 0.05em;
+}
+
+/* ── ENTOURAGE: PROGRAMME ── */
+.wp-programme {
+  padding: 24px 18px 28px;
+  border-top: 1px solid var(--border2);
+}
+
+.wp-programme--col {
+  border-top: none;
+  border-left: 1px solid var(--border2);
+  padding: 20px 18px 28px;
+  align-self: stretch;
+}
+
+.wp-programme-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 0;
+}
+
+.wp-prog-item {
+  display: grid;
+  grid-template-columns: 52px 20px 1fr;
+  align-items: start;
+  gap: 0 10px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  transition: background 0.15s;
+}
+
+.wp-prog-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wp-prog-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text3);
+  text-align: right;
+  padding-top: 3px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.wp-prog-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  margin-top: 4px;
+  justify-self: center;
+}
+
+.wp-prog-dot--accent {
+  background: rgba(167, 139, 250, 0.5);
+  border-color: #a78bfa;
+}
+
+.wp-prog-dot--gold {
+  background: rgba(240, 192, 96, 0.5);
+  border-color: var(--gold);
+}
+
+.wp-prog-dot--rose {
+  background: rgba(255, 143, 163, 0.5);
+  border-color: var(--rose);
+}
+
+.wp-prog-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.wp-prog-desc {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .wp-programme-list {
+    grid-template-columns: 1fr;
+  }
+  .wp-body-grid {
+    grid-template-columns: 1fr;
+  }
+  .wp-programme--col {
+    border-left: none;
+    border-top: 1px solid var(--border2);
+  }
+  .wp-prog-photo img {
+    height: 180px;
+  }
+}
+
+/* ENTOURAGE: HONOUR ROWS */
+.wp-honor-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.wp-honor-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wp-honor-item--groom {
+  border-color: rgba(74, 158, 255, 0.25);
+  background: rgba(74, 158, 255, 0.05);
+}
+
+.wp-honor-item--bride {
+  border-color: rgba(255, 143, 163, 0.25);
+  background: rgba(255, 143, 163, 0.05);
+}
+
+.wp-honor-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.wp-honor-role {
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.wp-honor-item--groom .wp-honor-role {
+  color: rgba(74, 158, 255, 0.9);
+  background: rgba(74, 158, 255, 0.1);
+}
+
+.wp-honor-item--bride .wp-honor-role {
+  color: rgba(255, 143, 163, 0.95);
+  background: rgba(255, 143, 163, 0.1);
+}
+
+/* ENTOURAGE: COUPLE PHOTO */
+.wp-prog-photo {
+  position: relative;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border2);
+}
+
+.wp-prog-photo img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.wp-prog-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 12px 10px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+  letter-spacing: 0.03em;
+}
+
 /* ── GALLERY ── */
 .gallery-card {
   grid-column: 1 / -1;
@@ -1033,11 +1542,8 @@ body {
   font-weight: 400;
 }
 .gallery-img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  display: block;
 }
 
 /* ── PHOTO MODAL ── */
@@ -1181,7 +1687,7 @@ body {
 .bank-row {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   font-size: 13px;
 }
@@ -1194,6 +1700,34 @@ body {
   color: var(--text);
   font-weight: 500;
   text-align: right;
+  flex: 1;
+}
+.bank-copy-btn {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--border2);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text3);
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+.bank-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text2);
+}
+.bank-copy-btn--copied {
+  border-color: rgba(74, 222, 128, 0.4);
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
 }
 .bank-divider {
   height: 1px;
@@ -1282,6 +1816,19 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+.bank-qr-box--img {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 4px;
+  overflow: hidden;
+}
+.bank-qr-box--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
 }
 .bank-qr-label {
   font-size: 11px;
