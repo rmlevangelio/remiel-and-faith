@@ -321,13 +321,34 @@ export default function WeddingPartyCard() {
             </div>
           </div>
 
+          <div className="wp-prog-photo">
+            <img src="/images/IMG_8238.JPG" alt="Remiel &amp; Faith" />
+            <div className="wp-prog-photo-caption">
+              English Garden, Soireé Events Place, Philippines · 2026
+            </div>
+          </div>
+
           {/* Couple Photo */}
           <div className="wp-prog-photo">
-            <img src="/images/IMG_8316.jpeg" alt="Remiel &amp; Faith" />
+            <img src="/images/IMG_8246.JPG" alt="Remiel &amp; Faith" />
+            <div className="wp-prog-photo-caption">
+              Le Grande Maison, Soireé Events Place, Philippines · 2026
+            </div>
+          </div>
+
+          <div className="wp-prog-photo">
+            <img src="/images/IMG_8287.JPG" alt="Remiel &amp; Faith" />
+            <div className="wp-prog-photo-caption">
+              Soireé Events Place, Cavite, Philippines · 2026
+            </div>
+          </div>
+
+          {/* <div className="wp-prog-photo">
+            <img src="/images/IMG_8213.jpeg" alt="Remiel &amp; Faith" />
             <div className="wp-prog-photo-caption">
               Pineda Elementary School, Pasig, Philippines · 2026
             </div>
-          </div>
+          </div> */}
 
           {/* Pull Quote */}
           <div className="wp-quote">
