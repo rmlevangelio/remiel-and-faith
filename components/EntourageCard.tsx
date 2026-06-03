@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function WeddingPartyCard() {
   return (
     <div className="card wedding-party-card fade-in d5" id="wedding-party">
@@ -322,7 +324,18 @@ export default function WeddingPartyCard() {
           </div>
 
           <div className="wp-prog-photo">
-            <img src="/images/IMG_8238.JPG" alt="Remiel &amp; Faith" />
+            <Image
+              src="/images/IMG_8238.JPG"
+              alt="Remiel & Faith"
+              width={600}
+              height={220}
+              style={{
+                width: '100%',
+                height: '220px',
+                objectFit: 'cover',
+                objectPosition: 'center center',
+              }}
+            />
             <div className="wp-prog-photo-caption">
               English Garden, Soireé Events Place, Philippines · 2026
             </div>
@@ -330,14 +343,36 @@ export default function WeddingPartyCard() {
 
           {/* Couple Photo */}
           <div className="wp-prog-photo">
-            <img src="/images/IMG_8246.JPG" alt="Remiel &amp; Faith" />
+            <Image
+              src="/images/IMG_8246.JPG"
+              alt="Remiel & Faith"
+              width={600}
+              height={220}
+              style={{
+                width: '100%',
+                height: '220px',
+                objectFit: 'cover',
+                objectPosition: 'center center',
+              }}
+            />
             <div className="wp-prog-photo-caption">
               Le Grande Maison, Soireé Events Place, Philippines · 2026
             </div>
           </div>
 
           <div className="wp-prog-photo">
-            <img src="/images/IMG_8287.JPG" alt="Remiel &amp; Faith" />
+            <Image
+              src="/images/IMG_8287.JPG"
+              alt="Remiel & Faith"
+              width={600}
+              height={220}
+              style={{
+                width: '100%',
+                height: '220px',
+                objectFit: 'cover',
+                objectPosition: 'center center',
+              }}
+            />
             <div className="wp-prog-photo-caption">
               Soireé Events Place, Cavite, Philippines · 2026
             </div>
@@ -354,8 +389,8 @@ export default function WeddingPartyCard() {
           <div className="wp-quote">
             <div className="wp-quote-mark">&ldquo;</div>
             <p className="wp-quote-text">
-              We're grateful for everyone who got us here. You prayed for us, believed in us, and
-              showed up. That means everything.
+              We&apos;re grateful for everyone who got us here. You prayed for us, believed in us,
+              and showed up. That means everything.
             </p>
             <div className="wp-quote-attr">— Remiel &amp; Faith</div>
           </div>
