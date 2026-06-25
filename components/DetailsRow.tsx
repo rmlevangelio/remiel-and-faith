@@ -56,14 +56,14 @@ export default function DetailsRow() {
           </div>
           <div>
             <div className="card-title">Dress Code</div>
-            <div className="card-sub">Black Tie Optional</div>
+            <div className="card-sub">Semi Formal</div>
           </div>
         </div>
         <div className="card-body" style={{ padding: '14px 18px 18px' }}>
           <div className="detail-divider" style={{ background: 'rgba(255,143,163,0.4)' }}></div>
           <div className="detail-lines">
             <div className="detail-line">
-              <strong>Formal evening attire is warmly encouraged</strong>
+              <strong>Semi formal</strong>
             </div>
             <div className="detail-line" style={{ marginTop: '6px' }}>
               Please no white — let the bride shine ✨

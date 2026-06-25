@@ -2,24 +2,33 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const photos = [
-  { src: '/images/IMG_8408.jpeg', alt: 'Photo', span: true },
-  { src: '/images/archery.jpg', alt: 'Archery', span: true },
-  { src: '/images/coffee.jpg', alt: 'Coffee', span: false },
-  { src: '/images/logo.jpg', alt: 'Remiel & Faith', span: false },
-  { src: '/images/norway-1.jpg', alt: 'Norway', span: true },
-  { src: '/images/IMG_0213.jpg', alt: 'Photo', span: false },
-  { src: '/images/IMG_1317.jpg', alt: 'Photo', span: false },
-  { src: '/images/IMG_4309.JPG', alt: 'Photo', span: true },
-  { src: '/images/IMG_8429.jpeg', alt: 'Photo', span: true },
-  { src: '/images/IMG_4574.JPG', alt: 'Photo', span: false },
-  { src: '/images/IMG_4677.JPG', alt: 'Photo', span: false },
-  { src: '/images/IMG_4930.JPG', alt: 'Photo', span: true },
-  { src: '/images/IMG_6392.JPG', alt: 'Photo', span: false },
-  { src: '/images/IMG_6553.JPG', alt: 'Photo', span: false },
-  { src: '/images/IMG_7852.JPG', alt: 'Photo', span: true },
-  { src: '/images/IMG_9361.JPG', alt: 'Photo', span: false },
-  { src: '/images/IMG_9793.JPG', alt: 'Photo', span: false },
-  { src: '/images/IMG_9848.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/new/1.JPG', alt: 'Photo', span: false },
+  { src: '/images/gallery/new/2.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/new/3.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/new/4.JPG', alt: 'Photo', span: false },
+  { src: '/images/gallery/new/5.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/new/7.JPG', alt: 'Photo', span: false },
+  { src: '/images/gallery/new/8.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/new/9.JPG', alt: 'Photo', span: false },
+  { src: '/images/gallery/new/10.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/new/11.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/new/12.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/new/17.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/archery.jpg', alt: 'Archery', span: true },
+  { src: '/images/gallery/coffee.jpg', alt: 'Coffee', span: false },
+  { src: '/images/gallery/logo.jpg', alt: 'Remiel & Faith', span: false },
+  { src: '/images/gallery/norway-1.jpg', alt: 'Norway', span: true },
+  { src: '/images/gallery/IMG_0213.jpg', alt: 'Photo', span: false },
+  { src: '/images/gallery/IMG_1317.jpg', alt: 'Photo', span: false },
+  { src: '/images/gallery/IMG_4309.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/IMG_8429.jpeg', alt: 'Photo', span: false },
+  { src: '/images/gallery/IMG_4574.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/IMG_4677.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/IMG_4930.JPG', alt: 'Photo', span: false },
+  { src: '/images/gallery/IMG_7852.JPG', alt: 'Photo', span: true },
+  { src: '/images/gallery/IMG_9361.JPG', alt: 'Photo', span: false },
+  { src: '/images/gallery/IMG_9793.JPG', alt: 'Photo', span: false },
+  { src: '/images/gallery/IMG_9848.JPG', alt: 'Photo', span: true },
 ];
 
 export default function GalleryCard() {
@@ -59,8 +68,8 @@ export default function GalleryCard() {
           <div>
             <div className="card-title">Our Moments</div>
             <div className="card-sub">
-              <span className="dot" style={{ background: '#6bcb77' }}></span> Photo Library · 4
-              Photos
+              <span className="dot" style={{ background: '#6bcb77' }}></span> Photo Library ·{' '}
+              {photos.length} Photos
             </div>
           </div>
         </div>
@@ -81,10 +90,6 @@ export default function GalleryCard() {
               />
             </div>
           ))}
-        </div>
-        <div className="card-footer">
-          <button className="more-btn">···</button>
-          <span style={{ fontSize: '12px', color: 'var(--text3)' }}>4 photos</span>
         </div>
       </div>
 

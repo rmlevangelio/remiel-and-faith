@@ -44,28 +44,31 @@ export default function GiftCard() {
           <div className="bank-qr-item">
             <div className="bank-qr-box bank-qr-box--img">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/revolut.jpg" alt="Revolut QR code" />
+              <img src="/images/bank/revolut.jpg" alt="Revolut QR code" />
             </div>
             <span className="bank-qr-currency">Revolut</span>
             <span className="bank-qr-sub">🇪🇺 EUR</span>
           </div>
           <div className="bank-qr-item">
-            <div className="bank-qr-box">
-              <span className="bank-qr-label">QR</span>
+            <div className="bank-qr-box bank-qr-box--img">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/bank/paylah.jpg" alt="Paylah QR code" />
             </div>
-            <span className="bank-qr-currency">Maribank</span>
+            <span className="bank-qr-currency">Paylah / Paynow</span>
             <span className="bank-qr-sub">🇸🇬 SGD</span>
           </div>
           <div className="bank-qr-item">
-            <div className="bank-qr-box">
-              <span className="bank-qr-label">QR</span>
+            <div className="bank-qr-box bank-qr-box--img">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/bank/bpi.jpg" alt="BPI QR code" />
             </div>
             <span className="bank-qr-currency">BPI</span>
             <span className="bank-qr-sub">🇵🇭 PHP</span>
           </div>
           <div className="bank-qr-item">
-            <div className="bank-qr-box">
-              <span className="bank-qr-label">QR</span>
+            <div className="bank-qr-box bank-qr-box--img">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/bank/bdo.jpg" alt="BDO QR code" />
             </div>
             <span className="bank-qr-currency">BDO</span>
             <span className="bank-qr-sub">🇵🇭 PHP</span>
@@ -106,21 +109,17 @@ export default function GiftCard() {
             <div className="bank-divider"></div>
 
             {/* SGD */}
-            <div className="bank-currency-heading">🇸🇬 SGD · Maribank</div>
+            <div className="bank-currency-heading">🇸🇬 SGD · Paylah / Paynow</div>
             <div className="bank-section">
               <div className="bank-rows">
                 <div className="bank-row">
                   <span className="bank-key">Bank</span>
-                  <span className="bank-val">Maribank</span>
-                </div>
-                <div className="bank-row">
-                  <span className="bank-key">Account Name</span>
-                  <span className="bank-val">Remiel A. Placeholder</span>
+                  <span className="bank-val">DBS</span>
                 </div>
                 <div className="bank-row">
                   <span className="bank-key">Account No.</span>
-                  <span className="bank-val">0000 0000 0000</span>
-                  <CopyBtn value="000000000000" />
+                  <span className="bank-val">93578013</span>
+                  <CopyBtn value="93578013" />
                 </div>
               </div>
             </div>
@@ -137,12 +136,12 @@ export default function GiftCard() {
                 </div>
                 <div className="bank-row">
                   <span className="bank-key">Account Name</span>
-                  <span className="bank-val">Remiel A. Placeholder</span>
+                  <span className="bank-val">Faith Carillo</span>
                 </div>
                 <div className="bank-row">
                   <span className="bank-key">Account No.</span>
-                  <span className="bank-val">0000 0000 0000</span>
-                  <CopyBtn value="000000000000" />
+                  <span className="bank-val">0039403803</span>
+                  <CopyBtn value="0039403803" />
                 </div>
               </div>
             </div>
@@ -159,12 +158,12 @@ export default function GiftCard() {
                 </div>
                 <div className="bank-row">
                   <span className="bank-key">Account Name</span>
-                  <span className="bank-val">Remiel A. Placeholder</span>
+                  <span className="bank-val">Faith Carillo</span>
                 </div>
                 <div className="bank-row">
                   <span className="bank-key">Account No.</span>
-                  <span className="bank-val">0000 0000 0000</span>
-                  <CopyBtn value="000000000000" />
+                  <span className="bank-val">007800072549</span>
+                  <CopyBtn value="007800072549" />
                 </div>
               </div>
             </div>

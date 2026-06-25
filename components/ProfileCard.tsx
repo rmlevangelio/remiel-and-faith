@@ -51,7 +51,7 @@ export default function ProfileCard({ daysLeft }: Props) {
         <div className="profile-avatar-wrap">
           <span className="profile-avatar-initials">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/IMG_8408.jpeg" alt="Remiel &amp; Faith" />
+            <img src="/images/gallery/new/6.JPG" alt="Remiel &amp; Faith" />
           </span>
         </div>
         <div className="profile-names">

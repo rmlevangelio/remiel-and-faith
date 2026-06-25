@@ -33,7 +33,6 @@ export default function Home() {
           <ProfileCard daysLeft={countdown.days2} />
           <FunFactsCard />
           <HashtagCard />
-          <WishesCard />
         </div>
 
         <div className="col-right fade-in d4" id="story">

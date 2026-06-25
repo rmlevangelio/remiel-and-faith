@@ -63,6 +63,10 @@ export default function WeddingPartyCard() {
                 <span className="wp-name-role">Ninong &amp; Ninang</span>
               </div>
               <div className="wp-name-item">
+                <span className="wp-name-text">Allan &amp; Juvy Ramirez</span>
+                <span className="wp-name-role">Ninong &amp; Ninang</span>
+              </div>
+              <div className="wp-name-item">
                 <span className="wp-name-text">Eric &amp; Hazelle Jadion</span>
                 <span className="wp-name-role">Ninong &amp; Ninang</span>
               </div>
@@ -229,6 +233,14 @@ export default function WeddingPartyCard() {
               </div>
               <div className="wp-name-item">
                 <span className="wp-name-text">Giane Angela Carillo</span>
+                <span className="wp-name-role">Flower Girl</span>
+              </div>
+              <div className="wp-name-item">
+                <span className="wp-name-text">Ma. Keana Cruz</span>
+                <span className="wp-name-role">Flower Girl</span>
+              </div>
+              <div className="wp-name-item">
+                <span className="wp-name-text">Ma. Kimberly Cruz</span>
                 <span className="wp-name-role">Flower Girl</span>
               </div>
             </div>
