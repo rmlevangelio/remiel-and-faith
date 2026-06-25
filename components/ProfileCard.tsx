@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 interface Props {
   daysLeft: string | number;
@@ -50,8 +51,12 @@ export default function ProfileCard({ daysLeft }: Props) {
       <div className="profile-body">
         <div className="profile-avatar-wrap">
           <span className="profile-avatar-initials">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/gallery/new/6.JPG" alt="Remiel &amp; Faith" />
+            <Image
+              src="/images/gallery/new/6.JPG"
+              alt="Remiel &amp; Faith"
+              width={100}
+              height={100}
+            />
           </span>
         </div>
         <div className="profile-names">
