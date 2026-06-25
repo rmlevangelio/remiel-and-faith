@@ -337,7 +337,7 @@ export default function WeddingPartyCard() {
 
           <div className="wp-prog-photo">
             <Image
-              src="/images/IMG_8238.JPG"
+              src="/images/gallery/IMG_8238.JPG"
               alt="Remiel & Faith"
               width={600}
               height={220}
@@ -356,7 +356,7 @@ export default function WeddingPartyCard() {
           {/* Couple Photo */}
           <div className="wp-prog-photo">
             <Image
-              src="/images/IMG_8246.JPG"
+              src="/images/gallery/IMG_8246.JPG"
               alt="Remiel & Faith"
               width={600}
               height={220}
@@ -374,7 +374,7 @@ export default function WeddingPartyCard() {
 
           <div className="wp-prog-photo">
             <Image
-              src="/images/IMG_8287.JPG"
+              src="/images/gallery/IMG_8287.JPG"
               alt="Remiel & Faith"
               width={600}
               height={220}
@@ -391,7 +391,7 @@ export default function WeddingPartyCard() {
           </div>
 
           {/* <div className="wp-prog-photo">
-            <img src="/images/IMG_8213.jpeg" alt="Remiel &amp; Faith" />
+            <img src="/images/gallery/IMG_8213.jpeg" alt="Remiel &amp; Faith" />
             <div className="wp-prog-photo-caption">
               Pineda Elementary School, Pasig, Philippines · 2026
             </div>
