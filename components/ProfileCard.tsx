@@ -71,10 +71,6 @@ export default function ProfileCard({ daysLeft }: Props) {
             <div className="profile-stat-label">Days Left</div>
           </div>
           <div className="profile-stat">
-            <span className="profile-stat-num">200</span>
-            <div className="profile-stat-label">Guests</div>
-          </div>
-          <div className="profile-stat">
             <span className="profile-stat-num">2</span>
             <div className="profile-stat-label">Years Together</div>
           </div>
