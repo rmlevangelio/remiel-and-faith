@@ -25,7 +25,7 @@ export default function KeyDatesCard() {
           <div className="reminder-dot" style={{ background: 'var(--rose)' }}></div>
           <div>
             <div className="reminder-text">Ceremony Begins</div>
-            <div className="reminder-date">March 15, 2027 · 3:00 PM</div>
+            <div className="reminder-date">March 15, 2027 · 4:30 PM</div>
           </div>
         </div>
         <div className="reminder-item">

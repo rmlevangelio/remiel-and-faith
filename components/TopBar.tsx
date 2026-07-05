@@ -15,8 +15,8 @@ export default function TopBar() {
       <nav className="topbar-nav">
         <a href="#story">Story</a>
         <a href="#details">Details</a>
-        <a href="#getting-there">Getting There</a>
         <a href="#wedding-party">Entourage</a>
+        <a href="#getting-there">Getting There</a>
         <a href="#gallery">Gallery</a>
         <a href="#rsvp">Gift</a>
       </nav>

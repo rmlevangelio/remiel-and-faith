@@ -43,7 +43,7 @@ export default function WeddingPartyCard() {
                   <span className="wp-name-role">Father</span>
                 </div>
                 <div className="wp-name-item">
-                  <span className="wp-name-text">Ma. Quiteria Carillo</span>
+                  <span className="wp-name-text">Maria Quiteria Carillo</span>
                   <span className="wp-name-role">Mother</span>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function WeddingPartyCard() {
                     <span className="wp-name-text">Lawrence Evangelio</span>
                   </div>
                   <div className="wp-name-item">
-                    <span className="wp-name-text">Heidi Nocon</span>
+                    <span className="wp-name-text">Khristian Heidi Nocon</span>
                   </div>
                 </div>
               </div>
@@ -177,13 +177,13 @@ export default function WeddingPartyCard() {
                   <span className="wp-name-text">Neil Patrick Cruz</span>
                 </div>
                 <div className="wp-name-item">
-                  <span className="wp-name-text">Ravi Sahijwani</span>
-                </div>
-                <div className="wp-name-item">
                   <span className="wp-name-text">Armin Imśirevic</span>
                 </div>
                 <div className="wp-name-item">
                   <span className="wp-name-text">Nejah Boughzala</span>
+                </div>
+                <div className="wp-name-item">
+                  <span className="wp-name-text">Ravi Sahijwani</span>
                 </div>
               </div>
             </div>
@@ -201,9 +201,6 @@ export default function WeddingPartyCard() {
                 </div>
                 <div className="wp-name-item">
                   <span className="wp-name-text">Irene Mae Serrano-Luz</span>
-                </div>
-                <div className="wp-name-item">
-                  <span className="wp-name-text">Heidi Nocon</span>
                 </div>
                 <div className="wp-name-item">
                   <span className="wp-name-text">Anna Luz Tio</span>
@@ -232,7 +229,7 @@ export default function WeddingPartyCard() {
                 <span className="wp-name-role">Coin Bearer</span>
               </div>
               <div className="wp-name-item">
-                <span className="wp-name-text">Giane Angela Carillo</span>
+                <span className="wp-name-text">Gianne Angela Carillo</span>
                 <span className="wp-name-role">Flower Girl</span>
               </div>
               <div className="wp-name-item">
@@ -262,7 +259,7 @@ export default function WeddingPartyCard() {
               </div>
             </div>
             <div className="wp-prog-item">
-              <div className="wp-prog-time">4:25 PM</div>
+              <div className="wp-prog-time">4:30 PM</div>
               <div className="wp-prog-dot"></div>
               <div className="wp-prog-event">
                 <div className="wp-prog-title">Processional</div>
@@ -270,7 +267,7 @@ export default function WeddingPartyCard() {
               </div>
             </div>
             <div className="wp-prog-item">
-              <div className="wp-prog-time">4:30 PM</div>
+              <div className="wp-prog-time">4:35 PM</div>
               <div className="wp-prog-dot wp-prog-dot--accent"></div>
               <div className="wp-prog-event">
                 <div className="wp-prog-title">Bridal March</div>
@@ -278,7 +275,7 @@ export default function WeddingPartyCard() {
               </div>
             </div>
             <div className="wp-prog-item">
-              <div className="wp-prog-time">4:35 PM</div>
+              <div className="wp-prog-time">4:40 PM</div>
               <div className="wp-prog-dot"></div>
               <div className="wp-prog-event">
                 <div className="wp-prog-title">Opening Prayer &amp; Welcome</div>
@@ -289,12 +286,20 @@ export default function WeddingPartyCard() {
               <div className="wp-prog-time">4:45 PM</div>
               <div className="wp-prog-dot"></div>
               <div className="wp-prog-event">
+                <div className="wp-prog-title">Message</div>
+                <div className="wp-prog-desc">A word for the couple</div>
+              </div>
+            </div>
+            <div className="wp-prog-item">
+              <div className="wp-prog-time">5:05 PM</div>
+              <div className="wp-prog-dot"></div>
+              <div className="wp-prog-event">
                 <div className="wp-prog-title">Exchange of Vows &amp; Rings</div>
                 <div className="wp-prog-desc">The couple makes their promises</div>
               </div>
             </div>
             <div className="wp-prog-item">
-              <div className="wp-prog-time">5:00 PM</div>
+              <div className="wp-prog-time">5:20 PM</div>
               <div className="wp-prog-dot"></div>
               <div className="wp-prog-event">
                 <div className="wp-prog-title">Candle, Veil &amp; Cord Ceremony</div>
@@ -302,7 +307,7 @@ export default function WeddingPartyCard() {
               </div>
             </div>
             <div className="wp-prog-item">
-              <div className="wp-prog-time">5:15 PM</div>
+              <div className="wp-prog-time">5:35 PM</div>
               <div className="wp-prog-dot"></div>
               <div className="wp-prog-event">
                 <div className="wp-prog-title">Signing of the Marriage Certificate</div>
@@ -310,10 +315,10 @@ export default function WeddingPartyCard() {
               </div>
             </div>
             <div className="wp-prog-item">
-              <div className="wp-prog-time">5:20 PM</div>
+              <div className="wp-prog-time">5:40 PM</div>
               <div className="wp-prog-dot wp-prog-dot--gold"></div>
               <div className="wp-prog-event">
-                <div className="wp-prog-title">First Kiss &amp; Recessional</div>
+                <div className="wp-prog-title">First Kiss, Pictorial &amp; Recessional</div>
                 <div className="wp-prog-desc">The newlyweds walk out together 🎉</div>
               </div>
             </div>
