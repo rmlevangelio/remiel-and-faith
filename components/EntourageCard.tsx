@@ -287,7 +287,7 @@ export default function WeddingPartyCard() {
               <div className="wp-prog-dot"></div>
               <div className="wp-prog-event">
                 <div className="wp-prog-title">Message</div>
-                <div className="wp-prog-desc">A word for the couple</div>
+                <div className="wp-prog-desc">Bible reading & Word</div>
               </div>
             </div>
             <div className="wp-prog-item">
