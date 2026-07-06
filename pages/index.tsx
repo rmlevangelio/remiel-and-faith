@@ -12,6 +12,7 @@ import DetailsRow from '../components/DetailsRow';
 import GettingThereCard from '../components/GettingThereCard';
 import EntourageCard from '../components/EntourageCard';
 import GalleryCard from '../components/GalleryCard';
+import HotelsCard from '../components/HotelsCard';
 import GiftCard from '../components/GiftCard';
 import KeyDatesCard from '../components/KeyDatesCard';
 
@@ -43,6 +44,7 @@ export default function Home() {
         <DetailsRow />
         <EntourageCard />
         <GettingThereCard />
+        <HotelsCard />
         <GalleryCard />
 
         <div className="bottom-row fade-in d7" id="rsvp">
