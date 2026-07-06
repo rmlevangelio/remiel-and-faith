@@ -94,13 +94,13 @@ const midRangeHotels: HotelData[] = [
     maps: 'https://www.google.com/maps/search/?api=1&query=Citadines+Salcedo+Makati',
   },
   {
-    name: 'Kasa Palma BGC',
-    area: '4th Ave, Bonifacio Global City',
-    phpFrom: 4800,
-    desc: 'Stylish boutique serviced residence inside BGC. A short walk to Market! Market! — the BGC shuttle pick-up point.',
+    name: 'F1 Hotel Manila',
+    area: '32nd St, Bonifacio Global City',
+    phpFrom: 5000,
+    desc: 'Well-known BGC hotel with spacious rooms and a pool. Right in the heart of BGC and a short walk to Market! Market! — the shuttle pick-up point.',
     badge: 'Nearest to Shuttle',
     badgeColor: '#4a9eff',
-    maps: 'https://www.google.com/maps/search/?api=1&query=Kasa+Palma+BGC+4th+Avenue+Bonifacio+Global+City',
+    maps: 'https://www.google.com/maps/search/?api=1&query=F1+Hotel+Manila+32nd+Street+Bonifacio+Global+City',
   },
   {
     name: 'Holiday Inn & Suites Makati',
