@@ -74,10 +74,6 @@ export default function WeddingPartyCard() {
                 <span className="wp-name-text">Benny Neugebauer</span>
                 <span className="wp-name-role">Ninong</span>
               </div>
-              <div className="wp-name-item">
-                <span className="wp-name-text">Zenith Crisostomo</span>
-                <span className="wp-name-role">Ninang</span>
-              </div>
             </div>
           </div>
 
