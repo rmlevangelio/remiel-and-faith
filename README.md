@@ -27,6 +27,33 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## RSVP Storage (Supabase)
+
+1. Create a Supabase project and open its SQL Editor.
+2. Run the contents of [supabase/schema.sql](supabase/schema.sql).
+3. Create `.env.local` in the project root:
+
+```bash
+SUPABASE_URL=https://your-project-ref.supabase.co
+SUPABASE_SECRET_KEY=your-secret-key
+```
+
+Find these values under Supabase **Project Settings > API**. The secret key is used only by `pages/api/rsvp.ts`; do not prefix it with `NEXT_PUBLIC_` or share it with guests.
+
+Each submitted RSVP is saved in the `rsvps` table. Re-submitting with the same guest name updates that guest's dietary response.
+
+## Guests And RSVP Results
+
+Run [supabase/guests.sql](supabase/guests.sql) in the Supabase SQL Editor to create and seed the `guests` table. The query is idempotent, so it can safely be run again.
+
+To access the password-protected results page at `/rsvp-results`, also add this server-only variable to `.env.local`:
+
+```bash
+RESULTS_PASSWORD=choose-a-long-unique-password
+```
+
+The page sends the password only to the server-side `/api/rsvp-results` endpoint, which retrieves the RSVP data with the Supabase secret key. Use HTTPS in production and do not share the password with guests.
+
 ---
 
 ## Available Scripts

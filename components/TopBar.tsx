@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function TopBar() {
   return (
     <div className="topbar">
@@ -18,6 +20,7 @@ export default function TopBar() {
         <a href="#wedding-party">Entourage</a>
         <a href="#getting-there">Getting There</a>
         <a href="#gallery">Gallery</a>
+        <Link href="/rsvp">RSVP</Link>
         <a href="#rsvp">Gift</a>
       </nav>
       <div className="topbar-avatar">R&amp;F</div>
