@@ -16,6 +16,7 @@ const dietaryOptions = [
 export default function Rsvp() {
   const [query, setQuery] = useState('');
   const [selectedGuest, setSelectedGuest] = useState('');
+  const [attending, setAttending] = useState<boolean | null>(null);
   const [dietaryRestriction, setDietaryRestriction] = useState('');
   const [dietaryNote, setDietaryNote] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -63,7 +64,18 @@ export default function Rsvp() {
   function selectGuest(guest: string) {
     setSelectedGuest(guest);
     setQuery(guest);
+    setAttending(null);
+    setDietaryRestriction('');
+    setDietaryNote('');
     setSubmitted(false);
+  }
+
+  function selectAttending(value: boolean) {
+    setAttending(value);
+    if (!value) {
+      setDietaryRestriction('');
+      setDietaryNote('');
+    }
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -77,6 +89,7 @@ export default function Rsvp() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           guestName: selectedGuest,
+          attending,
           dietaryRestriction,
           dietaryNote,
         }),
@@ -129,7 +142,11 @@ export default function Rsvp() {
               </span>
               <div>
                 <h2>Thank you, {selectedGuest}.</h2>
-                <p>Your dietary preference has been recorded.</p>
+                <p>
+                  {attending
+                    ? 'Your dietary preference has been recorded.'
+                    : "We're sorry you can't make it. Your response has been recorded."}
+                </p>
               </div>
               <button
                 type="button"
@@ -188,39 +205,72 @@ export default function Rsvp() {
               </div>
 
               <fieldset className="rsvp-fieldset" disabled={!selectedGuest}>
-                <legend>Dietary restriction</legend>
-                <div className="rsvp-dietary-grid">
-                  {dietaryOptions.map((option) => (
-                    <label className="rsvp-dietary-option" key={option}>
-                      <input
-                        type="radio"
-                        name="dietary-restriction"
-                        value={option}
-                        checked={dietaryRestriction === option}
-                        onChange={(event) => setDietaryRestriction(event.target.value)}
-                        required
-                      />
-                      <span>{option}</span>
-                    </label>
-                  ))}
-                </div>
-                {dietaryRestriction === 'Other' && (
-                  <label className="rsvp-note-label" htmlFor="dietary-note">
-                    Please share the details
+                <legend>Will you be attending?</legend>
+                <div className="rsvp-attending-grid">
+                  <label className="rsvp-dietary-option">
                     <input
-                      id="dietary-note"
-                      value={dietaryNote}
-                      onChange={(event) => setDietaryNote(event.target.value)}
+                      type="radio"
+                      name="attending"
+                      checked={attending === true}
+                      onChange={() => selectAttending(true)}
                       required
                     />
+                    <span>Yes, I&apos;ll be there</span>
                   </label>
-                )}
+                  <label className="rsvp-dietary-option">
+                    <input
+                      type="radio"
+                      name="attending"
+                      checked={attending === false}
+                      onChange={() => selectAttending(false)}
+                      required
+                    />
+                    <span>Sorry, can&apos;t make it</span>
+                  </label>
+                </div>
               </fieldset>
+
+              {attending && (
+                <fieldset className="rsvp-fieldset" disabled={!selectedGuest}>
+                  <legend>Dietary restriction</legend>
+                  <div className="rsvp-dietary-grid">
+                    {dietaryOptions.map((option) => (
+                      <label className="rsvp-dietary-option" key={option}>
+                        <input
+                          type="radio"
+                          name="dietary-restriction"
+                          value={option}
+                          checked={dietaryRestriction === option}
+                          onChange={(event) => setDietaryRestriction(event.target.value)}
+                          required
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {dietaryRestriction === 'Other' && (
+                    <label className="rsvp-note-label" htmlFor="dietary-note">
+                      Please share the details
+                      <input
+                        id="dietary-note"
+                        value={dietaryNote}
+                        onChange={(event) => setDietaryNote(event.target.value)}
+                        required
+                      />
+                    </label>
+                  )}
+                </fieldset>
+              )}
 
               <button
                 className="rsvp-submit"
                 type="submit"
-                disabled={!selectedGuest || !dietaryRestriction || isSubmitting}
+                disabled={
+                  !selectedGuest ||
+                  attending === null ||
+                  (attending && !dietaryRestriction) ||
+                  isSubmitting
+                }
               >
                 {isSubmitting ? 'Saving your RSVP...' : 'Confirm RSVP'}
               </button>

@@ -5,7 +5,8 @@ import Background from '../components/Background';
 
 type Rsvp = {
   guest_name: string;
-  dietary_restriction: string;
+  attending: boolean;
+  dietary_restriction: string | null;
   dietary_note: string | null;
   updated_at: string;
 };
@@ -24,9 +25,12 @@ export default function RsvpResults() {
   const [rsvps, setRsvps] = useState<Rsvp[] | null>(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const attendingCount = rsvps?.filter((rsvp) => rsvp.attending).length ?? 0;
+  const notAttendingCount = rsvps?.filter((rsvp) => !rsvp.attending).length ?? 0;
   const dietaryTotals = dietaryOptions.map((option) => ({
     option,
-    count: rsvps?.filter((rsvp) => rsvp.dietary_restriction === option).length ?? 0,
+    count:
+      rsvps?.filter((rsvp) => rsvp.attending && rsvp.dietary_restriction === option).length ?? 0,
   }));
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -91,7 +95,8 @@ export default function RsvpResults() {
           ) : (
             <div className="results-table-wrap">
               <p className="results-count">
-                {rsvps.length} response{rsvps.length === 1 ? '' : 's'} received
+                {rsvps.length} response{rsvps.length === 1 ? '' : 's'} received &middot;{' '}
+                {attendingCount} attending &middot; {notAttendingCount} not attending
               </p>
               <section className="results-dietary-summary" aria-labelledby="dietary-summary-title">
                 <h2 id="dietary-summary-title">Dietary totals</h2>
@@ -108,6 +113,7 @@ export default function RsvpResults() {
                 <thead>
                   <tr>
                     <th>Guest</th>
+                    <th>Attending</th>
                     <th>Dietary restriction</th>
                     <th>Details</th>
                     <th>Updated</th>
@@ -117,8 +123,9 @@ export default function RsvpResults() {
                   {rsvps.map((rsvp) => (
                     <tr key={rsvp.guest_name}>
                       <td>{rsvp.guest_name}</td>
-                      <td>{rsvp.dietary_restriction}</td>
-                      <td>{rsvp.dietary_note || '-'}</td>
+                      <td>{rsvp.attending ? 'Yes' : 'No'}</td>
+                      <td>{rsvp.attending ? rsvp.dietary_restriction : '-'}</td>
+                      <td>{rsvp.attending ? rsvp.dietary_note || '-' : '-'}</td>
                       <td>{new Date(rsvp.updated_at).toLocaleDateString()}</td>
                     </tr>
                   ))}

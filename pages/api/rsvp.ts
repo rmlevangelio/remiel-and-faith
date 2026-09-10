@@ -11,6 +11,7 @@ const dietaryRestrictions = new Set([
 
 type RsvpRequest = {
   guestName?: unknown;
+  attending?: unknown;
   dietaryRestriction?: unknown;
   dietaryNote?: unknown;
 };
@@ -21,17 +22,23 @@ export default async function handler(request: NextApiRequest, response: NextApi
     return response.status(405).json({ error: 'Method not allowed.' });
   }
 
-  const { guestName, dietaryRestriction, dietaryNote } = request.body as RsvpRequest;
+  const { guestName, attending, dietaryRestriction, dietaryNote } = request.body as RsvpRequest;
+  if (typeof guestName !== 'string' || typeof attending !== 'boolean' || !guestName.trim()) {
+    return response.status(400).json({ error: 'Please provide a valid RSVP.' });
+  }
+
   if (
-    typeof guestName !== 'string' ||
-    typeof dietaryRestriction !== 'string' ||
-    typeof dietaryNote !== 'string' ||
-    !guestName.trim() ||
-    !dietaryRestrictions.has(dietaryRestriction) ||
-    (dietaryRestriction === 'Other' && !dietaryNote.trim())
+    attending &&
+    (typeof dietaryRestriction !== 'string' ||
+      typeof dietaryNote !== 'string' ||
+      !dietaryRestrictions.has(dietaryRestriction) ||
+      (dietaryRestriction === 'Other' && !dietaryNote.trim()))
   ) {
     return response.status(400).json({ error: 'Please provide a valid RSVP.' });
   }
+
+  const normalizedDietaryRestriction = attending ? (dietaryRestriction as string) : null;
+  const normalizedDietaryNote = attending ? (dietaryNote as string).trim() || null : null;
 
   const supabaseUrl = process.env.SUPABASE_URL;
   const secretKey = process.env.SUPABASE_SECRET_KEY;
@@ -66,8 +73,9 @@ export default async function handler(request: NextApiRequest, response: NextApi
     },
     body: JSON.stringify({
       guest_name: guestName.trim(),
-      dietary_restriction: dietaryRestriction,
-      dietary_note: dietaryNote.trim() || null,
+      attending,
+      dietary_restriction: normalizedDietaryRestriction,
+      dietary_note: normalizedDietaryNote,
     }),
   });
 

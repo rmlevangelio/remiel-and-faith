@@ -3,7 +3,8 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Rsvp = {
   guest_name: string;
-  dietary_restriction: string;
+  attending: boolean;
+  dietary_restriction: string | null;
   dietary_note: string | null;
   updated_at: string;
 };
@@ -38,7 +39,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
   }
 
   const supabaseResponse = await fetch(
-    `${supabaseUrl}/rest/v1/rsvps?select=guest_name,dietary_restriction,dietary_note,updated_at&order=updated_at.desc`,
+    `${supabaseUrl}/rest/v1/rsvps?select=guest_name,attending,dietary_restriction,dietary_note,updated_at&order=updated_at.desc`,
     {
       headers: {
         apikey: secretKey,
