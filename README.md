@@ -54,6 +54,8 @@ RESULTS_PASSWORD=choose-a-long-unique-password
 
 The page sends the password only to the server-side `/api/rsvp-results` endpoint, which retrieves the RSVP data with the Supabase secret key. Use HTTPS in production and do not share the password with guests.
 
+The same `RESULTS_PASSWORD` also unlocks `/guests-admin`, a page for adding, editing, and deleting entries in the `guests` table via the server-side `/api/manage-guests` endpoint.
+
 ---
 
 ## Available Scripts
