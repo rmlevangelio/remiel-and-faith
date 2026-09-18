@@ -1894,6 +1894,40 @@ body {
   max-height: 420px;
   overflow-y: auto;
 }
+.guest-edit-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.guest-edit-input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+  padding: 10px 12px;
+}
+.guest-edit-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.16);
+}
+.guest-confirm-delete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text2);
+  font-size: 13px;
+}
+.guest-confirm-delete-yes {
+  color: #ffb0bd;
+}
+.guest-action-button + .guest-action-button {
+  margin-left: 16px;
+}
 .results-count {
   color: var(--text2);
   font-size: 13px;

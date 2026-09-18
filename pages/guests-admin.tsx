@@ -26,6 +26,7 @@ export default function ManageGuests() {
   const [rowError, setRowError] = useState('');
 
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
 
   const filteredGuests = useMemo(() => {
     const term = search.trim().toLowerCase();
@@ -88,6 +89,7 @@ export default function ManageGuests() {
   function startEditing(guest: Guest) {
     setEditingId(guest.id);
     setEditingName(guest.full_name);
+    setConfirmDeleteId(null);
     setRowError('');
   }
 
@@ -127,7 +129,6 @@ export default function ManageGuests() {
 
   async function handleDelete(guest: Guest) {
     if (!authHeader) return;
-    if (!window.confirm(`Remove ${guest.full_name} from the guest list?`)) return;
 
     setDeletingId(guest.id);
     setRowError('');
@@ -140,6 +141,7 @@ export default function ManageGuests() {
       if (!response.ok) throw new Error(data.error || 'Unable to delete guest.');
 
       setGuests((current) => (current ?? []).filter((item) => item.id !== guest.id));
+      setConfirmDeleteId(null);
     } catch (caughtError) {
       setRowError(caughtError instanceof Error ? caughtError.message : 'Unable to delete guest.');
     } finally {
@@ -237,11 +239,9 @@ export default function ManageGuests() {
                       editingId === guest.id ? (
                         <tr key={guest.id}>
                           <td colSpan={2}>
-                            <form
-                              onSubmit={handleSaveEdit}
-                              style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
-                            >
+                            <form className="guest-edit-form" onSubmit={handleSaveEdit}>
                               <input
+                                className="guest-edit-input"
                                 type="text"
                                 value={editingName}
                                 onChange={(event) => setEditingName(event.target.value)}
@@ -262,24 +262,47 @@ export default function ManageGuests() {
                             </form>
                           </td>
                         </tr>
+                      ) : confirmDeleteId === guest.id ? (
+                        <tr key={guest.id}>
+                          <td colSpan={2}>
+                            <div className="guest-confirm-delete">
+                              <span>Remove {guest.full_name}?</span>
+                              <button
+                                className="rsvp-text-button guest-confirm-delete-yes"
+                                type="button"
+                                onClick={() => handleDelete(guest)}
+                                disabled={deletingId === guest.id}
+                              >
+                                {deletingId === guest.id ? 'Removing...' : 'Yes, remove'}
+                              </button>
+                              <button
+                                className="rsvp-text-button"
+                                type="button"
+                                onClick={() => setConfirmDeleteId(null)}
+                                disabled={deletingId === guest.id}
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
                       ) : (
                         <tr key={guest.id}>
                           <td>{guest.full_name}</td>
                           <td>
                             <button
-                              className="rsvp-text-button"
+                              className="rsvp-text-button guest-action-button"
                               type="button"
                               onClick={() => startEditing(guest)}
                             >
                               Edit
-                            </button>{' '}
+                            </button>
                             <button
-                              className="rsvp-text-button"
+                              className="rsvp-text-button guest-action-button"
                               type="button"
-                              onClick={() => handleDelete(guest)}
-                              disabled={deletingId === guest.id}
+                              onClick={() => setConfirmDeleteId(guest.id)}
                             >
-                              {deletingId === guest.id ? 'Removing...' : 'Delete'}
+                              Delete
                             </button>
                           </td>
                         </tr>
