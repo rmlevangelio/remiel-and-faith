@@ -59,15 +59,15 @@ export default function WeddingPartyCard() {
             </div>
             <div className="wp-name-list wp-name-list--sponsors">
               <div className="wp-name-item">
-                <span className="wp-name-text">Clement &amp; Ruba Arulsamy</span>
+                <span className="wp-name-text">Clement Arulsamy &amp; Roseline Ruba Durairaj </span>
                 <span className="wp-name-role">Ninong &amp; Ninang</span>
               </div>
               <div className="wp-name-item">
-                <span className="wp-name-text">Allan &amp; Juvy Ramirez</span>
+                <span className="wp-name-text">Allan Ramirez &amp; Juvy Ramirez</span>
                 <span className="wp-name-role">Ninong &amp; Ninang</span>
               </div>
               <div className="wp-name-item">
-                <span className="wp-name-text">Eric &amp; Hazelle Jadion</span>
+                <span className="wp-name-text">John Eric Jadion &amp; Hazelle Jadion</span>
                 <span className="wp-name-role">Ninong &amp; Ninang</span>
               </div>
               <div className="wp-name-item">
@@ -193,7 +193,7 @@ export default function WeddingPartyCard() {
                   <span className="wp-name-text">Clariz Larocum</span>
                 </div>
                 <div className="wp-name-item">
-                  <span className="wp-name-text">Rashelyn Doromal</span>
+                  <span className="wp-name-text">Razel Corpuz</span>
                 </div>
                 <div className="wp-name-item">
                   <span className="wp-name-text">Irene Mae Serrano-Luz</span>

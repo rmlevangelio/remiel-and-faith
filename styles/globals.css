@@ -1198,9 +1198,9 @@ body {
   gap: 4px;
 }
 
-.wp-name-list--sponsors .wp-name-item {
+/* .wp-name-list--sponsors .wp-name-item {
   width: 210px;
-}
+} */
 
 .wp-name-item {
   display: block;

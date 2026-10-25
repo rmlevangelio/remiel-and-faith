@@ -15,13 +15,6 @@ export default function KeyDatesCard() {
       </div>
       <div className="card-body">
         <div className="reminder-item">
-          <div className="reminder-dot" style={{ background: '#4a9eff' }}></div>
-          <div>
-            <div className="reminder-text">RSVP Deadline</div>
-            <div className="reminder-date">November 15, 2026</div>
-          </div>
-        </div>
-        <div className="reminder-item">
           <div className="reminder-dot" style={{ background: 'var(--rose)' }}></div>
           <div>
             <div className="reminder-text">Ceremony Begins</div>
