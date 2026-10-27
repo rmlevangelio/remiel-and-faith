@@ -217,12 +217,16 @@ export default function WeddingPartyCard() {
             </div>
             <div className="wp-name-list wp-name-list--sponsors">
               <div className="wp-name-item">
-                <span className="wp-name-text"></span>
-                <span className="wp-name-role">Ring Bearer</span>
+                <span className="wp-name-text">Jayvee Arenas</span>
+                <span className="wp-name-role">Bible Bearer</span>
               </div>
               <div className="wp-name-item">
-                <span className="wp-name-text"></span>
+                <span className="wp-name-text">Neil Patrick Cruz</span>
                 <span className="wp-name-role">Coin Bearer</span>
+              </div>
+              <div className="wp-name-item">
+                <span className="wp-name-text">Charleigh Austin Cerda</span>
+                <span className="wp-name-role">Ring Bearer</span>
               </div>
               <div className="wp-name-item">
                 <span className="wp-name-text">Gianne Angela Carillo</span>
