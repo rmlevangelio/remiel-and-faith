@@ -167,7 +167,7 @@ export default function WeddingPartyCard() {
                   <span className="wp-name-text">Jayvee Arenas</span>
                 </div>
                 <div className="wp-name-item">
-                  <span className="wp-name-text">David Blum</span>
+                  <span className="wp-name-text">Vee Jay Mendoza</span>
                 </div>
                 <div className="wp-name-item">
                   <span className="wp-name-text">Neil Patrick Cruz</span>
