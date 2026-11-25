@@ -20,11 +20,15 @@ const dietaryOptions = [
   'Other',
 ];
 
+type AttendanceFilter = 'all' | 'attending' | 'not-attending';
+
 export default function RsvpResults() {
   const [password, setPassword] = useState('');
   const [rsvps, setRsvps] = useState<Rsvp[] | null>(null);
+  const [pendingGuests, setPendingGuests] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [attendanceFilter, setAttendanceFilter] = useState<AttendanceFilter>('all');
   const attendingCount = rsvps?.filter((rsvp) => rsvp.attending).length ?? 0;
   const notAttendingCount = rsvps?.filter((rsvp) => !rsvp.attending).length ?? 0;
   const dietaryTotals = dietaryOptions.map((option) => ({
@@ -32,6 +36,12 @@ export default function RsvpResults() {
     count:
       rsvps?.filter((rsvp) => rsvp.attending && rsvp.dietary_restriction === option).length ?? 0,
   }));
+  const filteredRsvps =
+    rsvps?.filter((rsvp) => {
+      if (attendanceFilter === 'attending') return rsvp.attending;
+      if (attendanceFilter === 'not-attending') return !rsvp.attending;
+      return true;
+    }) ?? [];
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -46,8 +56,9 @@ export default function RsvpResults() {
       if (response.status === 401) throw new Error('Incorrect password.');
       if (!response.ok) throw new Error('Unable to load RSVP results.');
 
-      const data = (await response.json()) as { rsvps: Rsvp[] };
+      const data = (await response.json()) as { rsvps: Rsvp[]; pendingGuests: string[] };
       setRsvps(data.rsvps);
+      setPendingGuests(data.pendingGuests);
       setPassword('');
     } catch (caughtError) {
       setError(caughtError instanceof Error ? caughtError.message : 'Unable to load RSVP results.');
@@ -109,28 +120,67 @@ export default function RsvpResults() {
                   ))}
                 </div>
               </section>
-              <table className="results-table">
-                <thead>
-                  <tr>
-                    <th>Guest</th>
-                    <th>Attending</th>
-                    <th>Dietary restriction</th>
-                    <th>Details</th>
-                    <th>Updated</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rsvps.map((rsvp) => (
-                    <tr key={rsvp.guest_name}>
-                      <td>{rsvp.guest_name}</td>
-                      <td>{rsvp.attending ? 'Yes' : 'No'}</td>
-                      <td>{rsvp.attending ? rsvp.dietary_restriction : '-'}</td>
-                      <td>{rsvp.attending ? rsvp.dietary_note || '-' : '-'}</td>
-                      <td>{new Date(rsvp.updated_at).toLocaleDateString()}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <div className="results-side-by-side">
+                <div>
+                  <div className="results-filters" role="group" aria-label="Filter by attendance">
+                    {(
+                      [
+                        { value: 'all', label: 'All' },
+                        { value: 'attending', label: 'Attending' },
+                        { value: 'not-attending', label: 'Not attending' },
+                      ] as const
+                    ).map(({ value, label }) => (
+                      <button
+                        key={value}
+                        type="button"
+                        className={`results-filter-button${
+                          attendanceFilter === value ? ' is-active' : ''
+                        }`}
+                        onClick={() => setAttendanceFilter(value)}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                  <table className="results-table">
+                    <thead>
+                      <tr>
+                        <th>Guest</th>
+                        <th>Attending</th>
+                        <th>Dietary restriction</th>
+                        <th>Details</th>
+                        <th>Updated</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredRsvps.map((rsvp) => (
+                        <tr key={rsvp.guest_name}>
+                          <td>{rsvp.guest_name}</td>
+                          <td>{rsvp.attending ? 'Yes' : 'No'}</td>
+                          <td>{rsvp.attending ? rsvp.dietary_restriction : '-'}</td>
+                          <td>{rsvp.attending ? rsvp.dietary_note || '-' : '-'}</td>
+                          <td>{new Date(rsvp.updated_at).toLocaleDateString()}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {filteredRsvps.length === 0 && rsvps.length > 0 && (
+                    <p className="rsvp-empty-state">No responses match this filter.</p>
+                  )}
+                </div>
+                <section className="results-pending-summary" aria-labelledby="pending-title">
+                  <h2 id="pending-title">Haven&apos;t RSVP&apos;d ({pendingGuests.length})</h2>
+                  {pendingGuests.length > 0 ? (
+                    <ul className="results-pending-list">
+                      {pendingGuests.map((name) => (
+                        <li key={name}>{name}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="rsvp-empty-state">Everyone has responded.</p>
+                  )}
+                </section>
+              </div>
               {rsvps.length === 0 && <p className="rsvp-empty-state">No RSVP responses yet.</p>}
             </div>
           )}

@@ -38,21 +38,36 @@ export default async function handler(request: NextApiRequest, response: NextApi
     return response.status(500).json({ error: 'Results service is not configured.' });
   }
 
-  const supabaseResponse = await fetch(
-    `${supabaseUrl}/rest/v1/rsvps?select=guest_name,attending,dietary_restriction,dietary_note,updated_at&order=updated_at.desc`,
-    {
-      headers: {
-        apikey: secretKey,
-        Authorization: `Bearer ${secretKey}`,
-      },
-    }
-  );
+  const supabaseHeaders = {
+    apikey: secretKey,
+    Authorization: `Bearer ${secretKey}`,
+  };
 
-  if (!supabaseResponse.ok) {
-    console.error('Supabase RSVP results request failed:', await supabaseResponse.text());
+  const [rsvpsResponse, guestsResponse] = await Promise.all([
+    fetch(
+      `${supabaseUrl}/rest/v1/rsvps?select=guest_name,attending,dietary_restriction,dietary_note,updated_at&order=updated_at.desc`,
+      { headers: supabaseHeaders }
+    ),
+    fetch(`${supabaseUrl}/rest/v1/guests?select=full_name&order=full_name.asc`, {
+      headers: supabaseHeaders,
+    }),
+  ]);
+
+  if (!rsvpsResponse.ok) {
+    console.error('Supabase RSVP results request failed:', await rsvpsResponse.text());
+    return response.status(502).json({ error: 'Unable to load RSVP results.' });
+  }
+  if (!guestsResponse.ok) {
+    console.error('Supabase guest list request failed:', await guestsResponse.text());
     return response.status(502).json({ error: 'Unable to load RSVP results.' });
   }
 
-  const rsvps = (await supabaseResponse.json()) as Rsvp[];
-  return response.status(200).json({ rsvps });
+  const rsvps = (await rsvpsResponse.json()) as Rsvp[];
+  const guests = (await guestsResponse.json()) as { full_name: string }[];
+  const respondedNames = new Set(rsvps.map((rsvp) => rsvp.guest_name));
+  const pendingGuests = guests
+    .map((guest) => guest.full_name)
+    .filter((name) => !respondedNames.has(name));
+
+  return response.status(200).json({ rsvps, pendingGuests });
 }
